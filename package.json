@@ -1,5 +1,5 @@
 {
-  "name": "__PROJECT_NAME__",
+  "name": "secret-clubhouse",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -8,20 +8,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/__USERNAME__/__PROJECT_NAME__.git"
+    "url": "git+https://github.com/ScaxCodes/secret-clubhouse.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/__USERNAME__/__PROJECT_NAME__/issues"
+    "url": "https://github.com/ScaxCodes/secret-clubhouse/issues"
   },
-  "homepage": "https://github.com/__USERNAME__/__PROJECT_NAME__#readme",
+  "homepage": "https://github.com/ScaxCodes/secret-clubhouse#readme",
   "description": "",
   "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "connect-pg-simple": "^10.0.0",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
-    "express-async-handler": "^1.2.0"
+    "express-async-handler": "^1.2.0",
+    "express-session": "^1.18.1",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "pg": "^8.15.6"
   }
 }
