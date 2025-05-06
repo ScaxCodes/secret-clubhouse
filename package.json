@@ -1,0 +1,27 @@
+{
+  "name": "__PROJECT_NAME__",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch --env-file=.env server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/__USERNAME__/__PROJECT_NAME__.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/__USERNAME__/__PROJECT_NAME__/issues"
+  },
+  "homepage": "https://github.com/__USERNAME__/__PROJECT_NAME__#readme",
+  "description": "",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-async-handler": "^1.2.0"
+  }
+}
