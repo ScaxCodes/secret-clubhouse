@@ -5,7 +5,12 @@ async function addUser(req, res) {
   const { firstname, lastname, username, password } = req.body;
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
-    await db.addUser({ firstname, lastname, username, hashedPassword });
+    await db.addUser({
+      firstname,
+      lastname,
+      username,
+      password: hashedPassword,
+    });
     console.log("User signed up with:", {
       firstname,
       lastname,
