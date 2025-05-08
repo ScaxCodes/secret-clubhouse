@@ -2,14 +2,28 @@ const express = require("express");
 const server = express();
 const router = require("./routes/router");
 
+const session = require("express-session");
+const passport = require("passport");
+const initializePassport = require("./auth/passport-config");
+initializePassport(passport);
+
 const PORT = process.env.PORT || 8000;
 
 server.use(express.urlencoded({ extended: false }));
 server.use(express.static("public"));
+server.use(
+  session({ secret: "cats", resave: false, saveUninitialized: false })
+);
+server.use(passport.session());
 
 const path = require("node:path");
 server.set("views", path.join(__dirname, "views"));
 server.set("view engine", "ejs");
+
+server.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
+});
 
 server.use("/", router);
 

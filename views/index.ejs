@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
+    <!-- Gate for logged in users -->
+    <% if (currentUser) { %>
+    <h1>Welcome, <%= currentUser.username %>!</h1>
+    <p><a href="/logout">Logout</a></p>
+    <% } else { %>
     <div class="form-container">
-      <h1>Hello World!</h1>
+      <h1>The Secret Clubhouse 🕵️‍♂️</h1>
       <form action="/login" method="POST">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required />
@@ -18,5 +23,6 @@
       </form>
       <p>Don't have an account? <a href="/signup">Signup here</a></p>
     </div>
+    <% } %>
   </body>
 </html>
