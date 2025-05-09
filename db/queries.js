@@ -15,6 +15,23 @@ async function addUser(user) {
   }
 }
 
+const SQL_UPDATE_CLUBMEMBER = /*sql*/ `
+  UPDATE users
+  SET clubmember = true
+  WHERE id = $1
+  RETURNING *`;
+
+async function setClubmember(userId) {
+  try {
+    const { rows } = await pool.query(SQL_UPDATE_CLUBMEMBER, [userId]);
+    return rows[0];
+  } catch (error) {
+    console.error("Error updating clubmember status:", error);
+    throw error;
+  }
+}
+
 module.exports = {
   addUser,
+  setClubmember,
 };

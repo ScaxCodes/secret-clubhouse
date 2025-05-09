@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ScaxCodes Clubhouse - Join the Club</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>Wanna join the Club?</h1>
+      <form action="/join-the-club" method="POST">
+        <% if (error) { %>
+        <p class="key-error"><%= error %></p>
+        <% } %>
+        <label for="password">Enter the Secret Club Key</label>
+        <input type="password" id="password" name="password" required />
+        <button type="submit">Let me in!</button>
+        <p><a href="/logout">Logout</a></p>
+      </form>
+    </div>
+  </body>
+</html>

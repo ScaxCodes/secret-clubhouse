@@ -1,6 +1,7 @@
 const express = require("express");
 const server = express();
 const router = require("./routes/router");
+const protectedRouter = require("./routes/protectedRouter");
 
 const session = require("express-session");
 const passport = require("passport");
@@ -26,6 +27,7 @@ server.use((req, res, next) => {
 });
 
 server.use("/", router);
+server.use("/", protectedRouter);
 
 server.listen(PORT, () =>
   console.log(`Express Server running at http://localhost:${PORT}...`)

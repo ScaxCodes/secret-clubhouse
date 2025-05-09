@@ -15,7 +15,8 @@ body {
   min-height: 100vh;
 }
 
-.form-container {
+.form-container,
+.message-container {
   background: white;
   padding: 2rem 2.5rem;
   border-radius: 12px;
@@ -83,4 +84,11 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+.key-error {
+  color: #ff4d4f;
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-weight: bold;
 }
