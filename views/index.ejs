@@ -7,26 +7,28 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <!-- Gate for logged in users -->
-    <% if (currentUser && currentUser.clubmember) { %>
     <div class="message-container">
-      <h1>Welcome to the Clubhouse, <%= currentUser.username %>! 🎉</h1>
+      <% if (currentUser) { %>
+      <p class="clubhouse-status">
+        <strong>Clubhouse Status: </strong><%= isClubmember ? "Member" : "Guest"
+        %>
+      </p>
+      <% } %>
+      <!-- Gate for logged in users -->
+      <% if (currentUser && currentUser.clubmember) { %>
+      <h1>Welcome to the Clubhouse, <%= currentUser.username %>!</h1>
       <p>
         <a href="/logout">Logout</a>
       </p>
-    </div>
 
-    <% } else if (currentUser) { %>
-    <div class="message-container">
+      <% } else if (currentUser) { %>
       <h1>Welcome, <%= currentUser.username %>!</h1>
       <p>
         <a href="/join-the-club">Join the Clubhouse</a> |
         <a href="/logout">Logout</a>
       </p>
-    </div>
 
-    <% } else { %>
-    <div class="form-container">
+      <% } else { %>
       <h1>The Secret Clubhouse 🕵️‍♂️</h1>
       <form action="/login" method="POST">
         <label for="username">Username:</label>
@@ -36,7 +38,7 @@
         <button type="submit">Login</button>
       </form>
       <p>Don't have an account? <a href="/signup">Signup here</a></p>
+      <% } %>
     </div>
-    <% } %>
   </body>
 </html>
