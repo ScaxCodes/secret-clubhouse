@@ -23,11 +23,7 @@ server.set("view engine", "ejs");
 
 server.use((req, res, next) => {
   res.locals.currentUser = req.user;
-  if (req.user && req.user.clubmember) {
-    res.locals.isClubmember = true;
-  } else {
-    res.locals.isClubmember = false;
-  }
+  res.locals.isClubmember = req.user?.clubmember || false;
   next();
 });
 

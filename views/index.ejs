@@ -10,24 +10,45 @@
     <div class="message-container">
       <% if (currentUser) { %>
       <p class="clubhouse-status">
-        <strong>Clubhouse Status: </strong><%= isClubmember ? "Member" : "Guest"
+        <strong>Clubhouse Status:</strong> <%= isClubmember ? "Member" : "Guest"
         %>
       </p>
-      <% } %>
-      <!-- Gate for logged in users -->
-      <% if (currentUser && currentUser.clubmember) { %>
-      <h1>Welcome to the Clubhouse, <%= currentUser.username %>!</h1>
+
+      <h1>
+        Welcome<%= isClubmember ? " to the Clubhouse" : "" %>, <%=
+        currentUser.username %>!
+      </h1>
+
+      <div class="messages">
+        <h2>Stories from the Clubhouse</h2>
+
+        <% if (messages && messages.length > 0) { %>
+        <ul>
+          <% messages.forEach((message) => { %>
+          <li class="message">
+            <h3><%= message.title %></h3>
+            <p><%= message.body %></p>
+
+            <% if (isClubmember) { %>
+            <p class="meta">
+              <strong>Author:</strong> <%= message.author %> |
+              <strong>Date:</strong> <%= new
+              Date(message.timestamp).toLocaleString() %>
+            </p>
+            <% } %>
+          </li>
+          <% }) %>
+        </ul>
+        <% } else { %>
+        <p>No stories yet!</p>
+        <% } %>
+      </div>
+
       <p>
+        <% if (!isClubmember) { %>
+        <a href="/join-the-club">Join the Clubhouse</a> | <% } %>
         <a href="/logout">Logout</a>
       </p>
-
-      <% } else if (currentUser) { %>
-      <h1>Welcome, <%= currentUser.username %>!</h1>
-      <p>
-        <a href="/join-the-club">Join the Clubhouse</a> |
-        <a href="/logout">Logout</a>
-      </p>
-
       <% } else { %>
       <h1>The Secret Clubhouse 🕵️‍♂️</h1>
       <form action="/login" method="POST">

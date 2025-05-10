@@ -31,7 +31,36 @@ async function setClubmember(userId) {
   }
 }
 
+const SQL_GET_MESSAGES_WITH_AUTHOR = /*sql*/ `
+  SELECT 
+    messages.title,
+    messages.body,
+    messages.timestamp,
+    users.username AS author
+  FROM messages
+  JOIN users ON messages.author_id = users.id
+  ORDER BY messages.timestamp DESC;
+`;
+
+const SQL_GET_MESSAGES_NO_AUTHOR = /*sql*/ `
+  SELECT 
+    title,
+    body
+  FROM messages
+  ORDER BY timestamp DESC;
+`;
+
+async function getMessages({ withAuthor }) {
+  const query = withAuthor
+    ? SQL_GET_MESSAGES_WITH_AUTHOR
+    : SQL_GET_MESSAGES_NO_AUTHOR;
+
+  const { rows } = await pool.query(query);
+  return rows;
+}
+
 module.exports = {
   addUser,
   setClubmember,
+  getMessages,
 };

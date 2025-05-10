@@ -1,9 +1,10 @@
 const { Router } = require("express");
 const userController = require("../controllers/userController");
+const messageController = require("../controllers/messageController");
 const router = Router();
 const passport = require("passport");
 
-router.get("/", (req, res) => {
+router.get("/", messageController.loadMessages, (req, res) => {
   res.render("index");
 });
 
