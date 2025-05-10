@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
+    <% if (currentUser) { %>
     <div class="message-container">
-      <% if (currentUser) { %>
       <p class="clubhouse-status">
-        <strong>Clubhouse Status:</strong> <%= isClubmember ? "Member" : "Guest"
-        %>
+        <strong>Clubhouse Status:</strong>
+        <%= isClubmember ? "Member" : "Guest" %>
       </p>
 
       <h1>
@@ -52,7 +52,9 @@
         <a href="/join-the-club">Join the Clubhouse</a> | <% } %>
         <a href="/logout">Logout</a>
       </p>
-      <% } else { %>
+    </div>
+    <% } else { %>
+    <div class="form-container">
       <h1>The Secret Clubhouse 🕵️‍♂️</h1>
       <form action="/login" method="POST">
         <label for="username">Username:</label>
@@ -62,7 +64,7 @@
         <button type="submit">Login</button>
       </form>
       <p>Don't have an account? <a href="/signup">Signup here</a></p>
-      <% } %>
     </div>
+    <% } %>
   </body>
 </html>
