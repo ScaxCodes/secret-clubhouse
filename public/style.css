@@ -97,3 +97,77 @@ a:hover {
 .clubhouse-status {
   margin-bottom: 24px;
 }
+
+/* Messages */
+
+.message-cards {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr; /* For small screens */
+}
+
+.message-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.message-card-title {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.message-card-body {
+  margin-bottom: 24px;
+}
+
+.message-card:hover {
+  transform: translateY(-5px);
+}
+
+.message-text {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.message-card-meta {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 6px;
+}
+
+/* Increase width for logged-in members */
+.message-container {
+  max-width: 900px; /* Larger width for logged-in members */
+  padding: 2rem;
+}
+
+h1 {
+  color: #333;
+}
+
+h2 {
+  margin-bottom: 12px;
+}
+
+@media (min-width: 700px) {
+  .message-cards {
+    grid-template-columns: 1fr 1fr; /* Two columns for medium screens */
+  }
+}
+
+/* Ensure that forms like login and signup stay at max-width: 400px */
+.form-container {
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Specific to the signup page for proper spacing */
+.form-container form {
+  display: flex;
+  flex-direction: column;
+}

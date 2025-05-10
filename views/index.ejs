@@ -23,22 +23,25 @@
         <h2>Stories from the Clubhouse</h2>
 
         <% if (messages && messages.length > 0) { %>
-        <ul>
+        <div class="message-cards">
           <% messages.forEach((message) => { %>
-          <li class="message">
-            <h3><%= message.title %></h3>
-            <p><%= message.body %></p>
-
+          <div class="message-card">
+            <div class="message-card-header">
+              <div class="message-card-title"><%= message.title %></div>
+            </div>
+            <div class="message-card-body"><%= message.body %></div>
             <% if (isClubmember) { %>
-            <p class="meta">
-              <strong>Author:</strong> <%= message.author %> |
+            <div class="message-card-meta">
               <strong>Date:</strong> <%= new
               Date(message.timestamp).toLocaleString() %>
-            </p>
+            </div>
+            <div class="message-card-meta">
+              <strong>Author:</strong> <%= message.author %>
+            </div>
             <% } %>
-          </li>
+          </div>
           <% }) %>
-        </ul>
+        </div>
         <% } else { %>
         <p>No stories yet!</p>
         <% } %>
