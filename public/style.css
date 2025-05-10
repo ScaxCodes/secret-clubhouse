@@ -91,6 +91,7 @@ a:hover {
   margin-top: 0;
   margin-bottom: 24px;
   font-weight: bold;
+  min-height: 17.5px;
 }
 
 .clubhouse-status {

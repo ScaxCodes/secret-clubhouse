@@ -12,6 +12,8 @@
       <form action="/join-the-club" method="POST">
         <% if (error) { %>
         <p class="key-error"><%= error %></p>
+        <% } else { %>
+        <p class="key-error"><%= error %></p>
         <% } %>
         <label for="password">Enter the Secret Club Key</label>
         <input type="password" id="password" name="password" required />
