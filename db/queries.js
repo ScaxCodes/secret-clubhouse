@@ -75,9 +75,20 @@ async function getMessages({ withAuthor }) {
   return rows;
 }
 
+const SQL_INSERT_MESSAGE = /*sql*/ `
+  INSERT INTO messages (author_id, title, body)
+  VALUES ($1, $2, $3)
+  RETURNING *`;
+
+async function addMessage({ userId, title, body }) {
+  const result = await pool.query(SQL_INSERT_MESSAGE, [userId, title, body]);
+  return result.rows[0];
+}
+
 module.exports = {
   addUser,
   setClubmember,
   setAdmin,
   getMessages,
+  addMessage,
 };

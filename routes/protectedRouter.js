@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const userController = require("../controllers/userController");
+const messageController = require("../controllers/messageController");
 const protectedRouter = Router();
 const ensureAuthenticated = require("../auth/auth-middleware");
 
@@ -11,6 +12,12 @@ protectedRouter.post(
   "/join-the-club",
   ensureAuthenticated,
   userController.setClubmember
+);
+
+protectedRouter.post(
+  "/messages",
+  ensureAuthenticated,
+  messageController.addMessage
 );
 
 module.exports = protectedRouter;

@@ -11,6 +11,23 @@ async function loadMessages(req, res, next) {
   }
 }
 
+async function addMessage(req, res, next) {
+  try {
+    const { title, body } = req.body;
+    const userId = req.user.id;
+    await db.addMessage({ userId, title, body });
+    console.log("Message added by user:", {
+      userId,
+      title,
+      body,
+    });
+    res.redirect("/");
+  } catch (err) {
+    next(err);
+  }
+}
+
 module.exports = {
   loadMessages,
+  addMessage,
 };
