@@ -2,6 +2,7 @@ const express = require("express");
 const server = express();
 const router = require("./routes/router");
 const protectedRouter = require("./routes/protectedRouter");
+const methodOverride = require("method-override");
 
 const session = require("express-session");
 const passport = require("passport");
@@ -11,6 +12,7 @@ initializePassport(passport);
 const PORT = process.env.PORT || 8000;
 
 server.use(express.urlencoded({ extended: false }));
+server.use(methodOverride("_method"));
 server.use(express.static("public"));
 server.use(
   session({ secret: "cats", resave: false, saveUninitialized: false })

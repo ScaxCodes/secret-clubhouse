@@ -42,12 +42,15 @@
           <% messages.forEach((message) => { %>
           <div class="message-card">
             <% if (isAdmin) { %>
-            <form action="/delete-message" method="POST" class="delete-form">
-              <input type="hidden" name="messageId" value="<%= message.id %>" />
+            <form
+              action="/messages/<%= message.id %>?_method=DELETE"
+              method="POST"
+              class="delete-form"
+            >
               <button
                 type="submit"
                 class="delete-button"
-                title="Delete message"
+                title="Delete Message"
               >
                 🗑️
               </button>

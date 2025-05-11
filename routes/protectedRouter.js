@@ -20,8 +20,8 @@ protectedRouter.post(
   messageController.addMessage
 );
 
-protectedRouter.post(
-  "/delete-message",
+protectedRouter.delete(
+  "/messages/:id",
   ensureAuthenticated,
   ensureAdmin,
   messageController.deleteMessage

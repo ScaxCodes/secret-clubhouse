@@ -30,11 +30,7 @@ async function addMessage(req, res, next) {
 
 async function deleteMessage(req, res, next) {
   try {
-    const { messageId } = req.body;
-    if (!req.user.admin) {
-      return res.status(403).send("Unauthorized");
-    }
-
+    const messageId = req.params.id;
     await db.deleteMessageById(messageId);
     console.log("Message deleted with ID:", messageId);
     res.redirect("/");
