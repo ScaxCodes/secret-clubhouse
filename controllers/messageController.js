@@ -1,6 +1,7 @@
 const db = require("../db/queries");
 
 async function loadMessages(req, res, next) {
+  if (!req.user) next();
   try {
     const isClubmember = req.user?.clubmember || false;
     const messages = await db.getMessages({ withAuthor: isClubmember });
