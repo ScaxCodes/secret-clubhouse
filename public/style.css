@@ -115,6 +115,7 @@ a:hover {
 }
 
 .message-card {
+  position: relative;
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 10px;
@@ -146,6 +147,24 @@ a:hover {
   font-size: 0.875rem;
   color: #6b7280;
   margin-top: 6px;
+}
+
+.delete-form {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.delete-button:hover {
+  background-color: rgb(255, 100, 100);
 }
 
 /* Increase width for logged-in members */

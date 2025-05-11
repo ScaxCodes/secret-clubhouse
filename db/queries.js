@@ -49,6 +49,7 @@ async function setAdmin(userId) {
 
 const SQL_GET_MESSAGES_WITH_AUTHOR = /*sql*/ `
   SELECT 
+    messages.id,
     messages.title,
     messages.body,
     messages.timestamp,
@@ -60,6 +61,7 @@ const SQL_GET_MESSAGES_WITH_AUTHOR = /*sql*/ `
 
 const SQL_GET_MESSAGES_NO_AUTHOR = /*sql*/ `
   SELECT 
+    id,
     title,
     body
   FROM messages
@@ -85,10 +87,19 @@ async function addMessage({ userId, title, body }) {
   return result.rows[0];
 }
 
+const SQL_DELETE_MESSAGE = /*sql*/ `
+  DELETE FROM messages WHERE id = $1
+`;
+
+async function deleteMessageById(messageId) {
+  return await pool.query(SQL_DELETE_MESSAGE, [messageId]);
+}
+
 module.exports = {
   addUser,
   setClubmember,
   setAdmin,
   getMessages,
   addMessage,
+  deleteMessageById,
 };
