@@ -9,9 +9,11 @@
   <body>
     <% if (currentUser) { %>
     <div class="message-container">
+      <% let statusLabel; if (isAdmin) { statusLabel = "Admin"; } else if
+      (isClubmember) { statusLabel = "Member"; } else { statusLabel = "Guest"; }
+      %>
       <p class="clubhouse-status">
-        <strong>Clubhouse Status:</strong>
-        <%= isClubmember ? "Member" : "Guest" %>
+        <strong>Clubhouse Status:</strong> <%= statusLabel %>
       </p>
 
       <h1>

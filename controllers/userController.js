@@ -27,10 +27,26 @@ async function setClubmember(req, res) {
   const { password } = req.body;
   const SECRET_KEY = process.env.SECRET_KEY;
 
-  if (password !== SECRET_KEY) {
+  if (password !== SECRET_KEY && password !== process.env.ADMIN_KEY) {
     return res.render("join-the-club", {
       error: "Incorrect key, please try again.",
     });
+  }
+
+  const ADMIN_KEY = process.env.ADMIN_KEY;
+  if (password === ADMIN_KEY) {
+    try {
+      await db.setAdmin(req.user.id);
+      console.log(
+        "User",
+        req.user.username,
+        "with ID:",
+        req.user.id,
+        "is now an admin."
+      );
+    } catch (err) {
+      return res.status(500).send("Error updating admin status");
+    }
   }
 
   try {

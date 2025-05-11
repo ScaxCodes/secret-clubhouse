@@ -31,6 +31,22 @@ async function setClubmember(userId) {
   }
 }
 
+const SQL_UPDATE_ADMIN = /*sql*/ `
+  UPDATE users
+  SET admin = true
+  WHERE id = $1
+  RETURNING *`;
+
+async function setAdmin(userId) {
+  try {
+    const { rows } = await pool.query(SQL_UPDATE_ADMIN, [userId]);
+    return rows[0];
+  } catch (error) {
+    console.error("Error updating admin status:", error);
+    throw error;
+  }
+}
+
 const SQL_GET_MESSAGES_WITH_AUTHOR = /*sql*/ `
   SELECT 
     messages.title,
@@ -62,5 +78,6 @@ async function getMessages({ withAuthor }) {
 module.exports = {
   addUser,
   setClubmember,
+  setAdmin,
   getMessages,
 };
