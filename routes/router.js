@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const userController = require("../controllers/userController");
 const messageController = require("../controllers/messageController");
+const signupValidator = require("../controllers/signupValidator");
 const router = Router();
 const passport = require("passport");
 
@@ -11,7 +12,7 @@ router.get("/", messageController.loadMessages, (req, res) => {
 router.get("/signup", (req, res) => {
   res.render("signup");
 });
-router.post("/signup", userController.addUser);
+router.post("/signup", signupValidator, userController.addUser);
 
 router.post(
   "/login",
