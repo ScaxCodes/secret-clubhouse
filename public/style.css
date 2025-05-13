@@ -127,10 +127,14 @@ a:hover {
 .message-card-title {
   font-size: 1.25rem;
   margin-bottom: 12px;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .message-card-body {
   margin-bottom: 24px;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .message-card:hover {
