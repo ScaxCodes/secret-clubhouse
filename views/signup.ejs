@@ -11,13 +11,34 @@
       <h1>Sign Up</h1>
       <form action="/signup" method="POST">
         <label for="firstname">First Name</label>
-        <input type="text" id="firstname" name="firstname" required />
+        <input
+          type="text"
+          id="firstname"
+          name="firstname"
+          required
+          value="<%=
+        formData?.firstname || '' %>"
+        />
 
         <label for="lastname">Last Name</label>
-        <input type="text" id="lastname" name="lastname" required />
+        <input
+          type="text"
+          id="lastname"
+          name="lastname"
+          required
+          value="<%=
+        formData?.lastname || '' %>"
+        />
 
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" required />
+        <input
+          type="text"
+          id="username"
+          name="username"
+          required
+          value="<%=
+        formData?.username || '' %>"
+        />
 
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required />
@@ -29,6 +50,10 @@
           name="confirmPassword"
           required
         />
+        <% const confirmPasswordError = (errors || []).find(e => e.path ===
+        'confirmPassword'); %> <% if (confirmPasswordError) { %>
+        <p class="key-error"><%= confirmPasswordError.msg %>!</p>
+        <% } %>
 
         <button type="submit">Sign Up</button>
       </form>

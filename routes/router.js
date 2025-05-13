@@ -10,7 +10,7 @@ router.get("/", messageController.loadMessages, (req, res) => {
 });
 
 router.get("/signup", (req, res) => {
-  res.render("signup");
+  res.render("signup", { errors: [], formData: {} });
 });
 router.post("/signup", signupValidator, userController.addUser);
 
