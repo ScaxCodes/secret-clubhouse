@@ -10,11 +10,7 @@
     <div class="form-container">
       <h1>Wanna join the Club?</h1>
       <form action="/join-the-club" method="POST">
-        <% if (error) { %>
         <p class="key-error"><%= error %></p>
-        <% } else { %>
-        <p class="key-error"><%= error %></p>
-        <% } %>
         <label for="password">Enter the Secret Club Key</label>
         <input type="password" id="password" name="password" required />
         <button type="submit">Let me in!</button>

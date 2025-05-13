@@ -21,6 +21,12 @@
         currentUser.username %>!
       </h1>
 
+      <% if (!isClubmember) { %>
+      <p class="join-the-club">
+        <a href="/join-the-club">Join the Clubhouse</a>
+      </p>
+      <% } %>
+
       <div class="form-container share-message">
         <form action="/messages" method="POST" class="new-message-form">
           <h2>Share a Secret Story</h2>
@@ -84,8 +90,6 @@
       </div>
 
       <p>
-        <% if (!isClubmember) { %>
-        <a href="/join-the-club">Join the Clubhouse</a> | <% } %>
         <a href="/logout">Logout</a>
       </p>
     </div>

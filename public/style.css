@@ -102,7 +102,8 @@ a:hover {
   min-height: 17.5px;
 }
 
-.clubhouse-status {
+.clubhouse-status,
+.join-the-club {
   margin-bottom: 24px;
 }
 
