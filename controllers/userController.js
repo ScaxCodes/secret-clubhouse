@@ -23,7 +23,7 @@ async function addUser(req, res) {
   }
 }
 
-async function setClubmember(req, res) {
+async function setClubStatus(req, res) {
   const { password } = req.body;
   const SECRET_KEY = process.env.SECRET_KEY;
 
@@ -66,5 +66,5 @@ async function setClubmember(req, res) {
 
 module.exports = {
   addUser,
-  setClubmember,
+  setClubStatus,
 };

@@ -12,7 +12,7 @@ protectedRouter.get("/join-the-club", ensureAuthenticated, (req, res) => {
 protectedRouter.post(
   "/join-the-club",
   ensureAuthenticated,
-  userController.setClubmember
+  userController.setClubStatus
 );
 
 protectedRouter.post(
