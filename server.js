@@ -1,5 +1,6 @@
 const express = require("express");
 const server = express();
+const setLocals = require("./middleware/setLocals");
 const router = require("./routes/router");
 const protectedRouter = require("./routes/protectedRouter");
 const methodOverride = require("method-override");
@@ -23,12 +24,7 @@ const path = require("node:path");
 server.set("views", path.join(__dirname, "views"));
 server.set("view engine", "ejs");
 
-server.use((req, res, next) => {
-  res.locals.currentUser = req.user;
-  res.locals.isClubmember = req.user?.clubmember || false;
-  res.locals.isAdmin = req.user?.admin || false;
-  next();
-});
+server.use("/", setLocals);
 
 server.use("/", router);
 server.use("/", protectedRouter);
