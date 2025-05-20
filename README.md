@@ -1,6 +1,6 @@
-<div style="display: flex; align-items: center; justify-content: center; max-width: 400px" align="center">
-  <img src="./readme-img.png" alt="Screenshot of the login screen">
-</div>
+<p align="center">
+  <img src="./readme-img.png" alt="Screenshot of the login screen" width="400">
+</p>
 
 # 🕵️‍♂️ Secret Clubhouse
 
