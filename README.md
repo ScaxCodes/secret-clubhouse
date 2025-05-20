@@ -1,3 +1,7 @@
+<div style="display: flex; align-items: center; justify-content: center; max-width: 400px" align="center">
+  <img src="./readme-img.png" alt="Screenshot of the login screen">
+</div>
+
 # 🕵️‍♂️ Secret Clubhouse
 
 In this project, I built a private clubhouse where members can post anonymously. Outside visitors can read the stories, but they don’t see who wrote them - only members inside the clubhouse can see the authors behind each post.
