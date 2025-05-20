@@ -8,6 +8,8 @@ In this project, I built a private clubhouse where members can post anonymously.
 
 The app focuses on **user authentication** and **session handling**, building on what I learned in previous projects. It also gave me a chance to deepen my skills with **PostgreSQL databases** and server-side logic using **Express** and **Passport.js**.
 
+**Live-Demo:** [https://secret-clubhouse-production.up.railway.app/](https://secret-clubhouse-production.up.railway.app/) (key to join the club is "123")
+
 ## Setup Instructions
 
 1. **Clone the Repository**
