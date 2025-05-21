@@ -29,6 +29,11 @@ server.use("/", setLocals);
 server.use("/", router);
 server.use("/", protectedRouter);
 
+server.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).send(err);
+});
+
 server.listen(PORT, () =>
   console.log(`Express Server running at http://localhost:${PORT}...`)
 );
